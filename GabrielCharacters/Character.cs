@@ -495,8 +495,8 @@ namespace GabrielCharacters
 		private void Fight(List<Character> aliveChar, List<Character> deadChar, List<Character> fightChar)
 		{
 			Console.WriteLine("Чтобы начать драку, нажмите Enter. Если не хотите, введите 'нет' и нажмите Enter.");
-			string answ1 = Console.ReadLine();
-			if (answ1 != "нет")
+			string answ = Console.ReadLine();
+			if (answ != "нет")
 			{
 				int punch = 0;
 				foreach (Character character in fightChar)
@@ -507,35 +507,46 @@ namespace GabrielCharacters
 				{
 					if (this._vict >= 10)
 					{
-						Console.WriteLine("Есть возможность нанести " + character._name + " полный урон. Чтобы сделать это, нажмите Enter. Если не хотите, введите 'нет' и нажмите Enter.");
-						string answ2 = Console.ReadLine();
-						if (answ2 != "нет")
-						{
-							this.UltDamage(character);
-						}
-						else
-						{
-							if (this._punch <= aliveChar.Find(c => c._name == character._name)._hpCur)
-							{
-								this.Damage(aliveChar.Find(c => c._name == character._name));
-							}
-							else
-							{
-								this.Kill(aliveChar, deadChar, aliveChar.Find(c => c._name == character._name));
-							}
-						}
+						this.UltDamage(character);
+					}
+					if (this._punch <= aliveChar.Find(c => c._name == character._name)._hpCur)
+					{
+						this.Damage(aliveChar.Find(c => c._name == character._name));
 					}
 					else
 					{
-						if (this._punch <= aliveChar.Find(c => c._name == character._name)._hpCur)
+						this.Kill(aliveChar, deadChar, aliveChar.Find(c => c._name == character._name));
+					}
+					this._hpCur -= punch;
+					if (this._hpCur > 0)
+					{
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Вы получили урон.");
+						Console.ResetColor();
+						if (fightChar.Count > 0)
 						{
-							this.Damage(aliveChar.Find(c => c._name == character._name));
+							this.Fight(aliveChar, deadChar, fightChar);
 						}
 						else
 						{
-							this.Kill(aliveChar, deadChar, aliveChar.Find(c => c._name == character._name));
+							this.EndCheck(aliveChar, deadChar);
 						}
 					}
+					else if (this._hpCur == 0)
+					{
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Вы получили урон. Ваше здоровье пусто.");
+						Console.ResetColor();
+						this.ChooseAction(aliveChar, deadChar);
+					}
+					else
+					{
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Вас убили.");
+						Console.ResetColor();
+						aliveChar.Remove(aliveChar.Find(c => c._name == this._name));
+						this.ChooseCharacter(aliveChar);
+					}	        
 				}
 				for (int i = 0; i < fightChar.Count; i++)
 				{
@@ -543,33 +554,7 @@ namespace GabrielCharacters
 					{
 						fightChar.Remove(fightChar[i]);
 					}
-				}
-				Console.ForegroundColor = ConsoleColor.Blue;
-				this._hpCur -= punch;
-				if (this._hpCur > 0)
-				{
-					Console.WriteLine("Вы получили урон.");
-					if (fightChar.Count > 0)
-					{
-						this.Fight(aliveChar, deadChar, fightChar);
-					}
-					else
-					{
-						this.EndCheck(aliveChar, deadChar);
-					}
-				}
-				else if (this._hpCur == 0)
-				{
-					Console.WriteLine("Вы получили урон. Ваше здоровье пусто.");
-					this.ChooseAction(aliveChar, deadChar);
-				}
-				else
-				{
-					Console.WriteLine("Вас убили.");
-					aliveChar.Remove(aliveChar.Find(c => c._name == this._name));
-					this.ChooseCharacter(aliveChar);
-				}
-				Console.ResetColor();
+				}	    
 			}
 			else
 			{
@@ -583,7 +568,12 @@ namespace GabrielCharacters
 		/// <param name="character"></param>
 		private void UltDamage(Character character)
 		{
-		    character._hpCur = -1;
+			Console.WriteLine("Есть возможность нанести " + character._name + " полный урон. Чтобы сделать это, нажмите Enter. Если не хотите, введите 'нет' и нажмите Enter.");
+			string answ = Console.ReadLine();
+			if (answ != "нет")
+			{
+   	 			character._hpCur = -1;
+			}
 		}
 			
 		/// <summary>

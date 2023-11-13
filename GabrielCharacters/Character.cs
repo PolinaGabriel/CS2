@@ -518,6 +518,7 @@ namespace GabrielCharacters
 						this.Kill(aliveChar, deadChar, aliveChar.Find(c => c._name == character._name));
 					}
 					this._hpCur -= punch;
+					aliveChar.Find(c => c._name == this._name)._hpCur -= punch;
 					if (this._hpCur > 0)
 					{
 						Console.WriteLine("Вы получили урон.");

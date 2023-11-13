@@ -520,9 +520,7 @@ namespace GabrielCharacters
 					this._hpCur -= punch;
 					if (this._hpCur > 0)
 					{
-						Console.ForegroundColor = ConsoleColor.Blue;
 						Console.WriteLine("Вы получили урон.");
-						Console.ResetColor();
 						if (fightChar.Count > 0)
 						{
 							this.Fight(aliveChar, deadChar, fightChar);
@@ -534,16 +532,12 @@ namespace GabrielCharacters
 					}
 					else if (this._hpCur == 0)
 					{
-						Console.ForegroundColor = ConsoleColor.Blue;
 						Console.WriteLine("Вы получили урон. Ваше здоровье пусто.");
-						Console.ResetColor();
 						this.ChooseAction(aliveChar, deadChar);
 					}
 					else
 					{
-						Console.ForegroundColor = ConsoleColor.Blue;
 						Console.WriteLine("Вас убили.");
-						Console.ResetColor();
 						aliveChar.Remove(aliveChar.Find(c => c._name == this._name));
 						this.ChooseCharacter(aliveChar);
 					}	        

@@ -511,7 +511,7 @@ namespace GabrielCharacters
 					}
 					if (this._punch <= aliveChar.Find(c => c._name == character._name)._hpCur)
 					{
-						this.Damage(aliveChar.Find(c => c._name == character._name));
+						this.Damage(aliveChar.Find(c => c._name == character._name), fightChar.Count);
 					}
 					else
 					{
@@ -575,9 +575,10 @@ namespace GabrielCharacters
 		/// Нанесение урона
 		/// </summary>
 		/// <param name="character">противник</param>
-		private void Damage(Character character)
+		private void Damage(Character character, int div)
 		{
-			character._hpCur -= this._punch;
+			int punch = this._punch / div;
+			character._hpCur -= punch;
 			Console.WriteLine(character._name + " получил урон.");
 		}
 			

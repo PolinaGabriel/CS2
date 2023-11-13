@@ -208,64 +208,80 @@ namespace GabrielCharacters
 		}
 
         /// <summary>
-        /// Заполнение информации о персонаже
-        /// </summary>
-        /// <param name="aliveChar">список живых персонажей</param>
-        private void InfoIn(List<Character> aliveChar)
-        {
-            InfoInName(aliveChar);
-            InfoInXpPunch();
-            InfoInTeam();
-            InfoInXY(aliveChar);
-        }
-
-        /// <summary>
-        /// Заполнение имени персонажа
-        /// </summary>
-        /// <param name="aliveChar">список живых персонажей</param>
-        private void InfoInName(List<Character> aliveChar)
-        {
-            Console.Write("Введите имя персонажа (не может остаться пустым): ");
-            string name = Console.ReadLine();
-            if (name == "")
-            {
-                InfoInName(aliveChar);
-            }
-            int a = 0;
-            foreach (Character character in aliveChar)
-            {
-                if (name == character._name)
-                {
-                    Console.WriteLine("Персонаж с таким именем уже есть. Придумайте другое.");
-                    a++;
-                    InfoInName(aliveChar);
-                }
-            }
-            if (a == 0)
-            {
-                this._name = name;
-            }
-        }
-
-        /// <summary>
-        /// Заполнение здоровья и силы удара персонажа
-        /// </summary>
-        private void InfoInXpPunch()
-        {
-            Console.Write("Введите здоровье персонажа (должно быть больше нуля): ");
-            int xpMax = Convert.ToInt32(Console.ReadLine());
-            if (xpMax <= 0)
-            {
-                InfoInXpPunch();
-            }
-            else
-            {
-                this._hpMax = xpMax;
-                this._hpCur = xpMax;
-                Random random = new Random();
-                this._punch = random.Next(this._hpMax / 2, this._hpMax);
-            } 
-        }
+	/// Заполнение информации о персонаже
+	/// </summary>
+	/// <param name="aliveChar">список живых персонажей</param>
+	private void InfoIn(List<Character> aliveChar)
+	{
+    	InfoInName(aliveChar);
+    	InfoInHp();
+    	InfoInPunch();
+	    InfoInTeam();
+	    InfoInXY(aliveChar);
+	}
+	
+	/// <summary>
+	/// Заполнение имени персонажа
+	/// </summary>
+	/// <param name="aliveChar">список живых персонажей</param>
+	private void InfoInName(List<Character> aliveChar)
+	{
+	    Console.Write("Введите имя персонажа (не может остаться пустым): ");
+	    string name = Console.ReadLine();
+	    if (name == "")
+	    {
+	        InfoInName(aliveChar);
+	    }
+	    int a = 0;
+	    foreach (Character character in aliveChar)
+	    {
+	        if (name == character._name)
+	        {
+	            Console.WriteLine("Персонаж с таким именем уже есть. Придумайте другое.");
+	            a++;
+	            InfoInName(aliveChar);
+	        }
+	    }
+	    if (a == 0)
+	    {
+	        this._name = name;
+	    }
+	}
+	
+	/// <summary>
+	/// Заполнение здоровья персонажа
+	/// </summary>
+	private void InfoInHp()
+	{
+	    Console.Write("Введите здоровье персонажа (должно быть больше нуля): ");
+	    int xpMax = Convert.ToInt32(Console.ReadLine());
+	    if (xpMax <= 0)
+	    {
+	        InfoInHp();
+	    }
+	    else
+	    {
+	        this._hpMax = xpMax;
+	        this._hpCur = xpMax;
+	    }
+	}
+	
+	/// <summary>
+	/// Заполнение силы удара персонажа
+	/// </summary>
+	private void InfoInPunch()
+	{
+	    Console.Write("Введите силу удара персонажа (должна быть не больше его здоровья и больше нуля): ");
+	    int punch = Convert.ToInt32(Console.ReadLine());
+	    if (punch <= 0 || punch > this._hpMax)
+	    {
+	        InfoInPunch();
+	    }
+	    else
+	    {
+	        this._punch = punch;
+	    }
+	}
 
         /// <summary>
         /// Заполнение команды персонажа

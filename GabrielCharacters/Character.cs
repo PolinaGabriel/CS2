@@ -45,28 +45,28 @@ namespace GabrielCharacters
 			switch (actCoice)
 			{
 				case 1:
-					{
-						this.TwoCharacters(aliveChar);
-						break;
-					}
+				{
+					this.TwoCharacters(aliveChar);
+					break;
+				}
 
 				case 2:
-					{
-						this.NextCharacters(aliveChar);
-						break;
-					}
+				{
+					this.NextCharacters(aliveChar);
+					break;
+				}
 
 				case 3:
-					{
-						this.ChooseCharacter(aliveChar);
-						break;
-					}
+				{
+					this.ChooseCharacter(aliveChar);
+					break;
+				}
 
 				case 4:
-					{
-						this.ChooseAction(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.ChooseAction(aliveChar, deadChar);
+					break;
+				}
 			}
 		}
 
@@ -155,56 +155,56 @@ namespace GabrielCharacters
 			switch (actChoice)
 			{
 				case "1":
-					{
-						this.InfoOut();
-						this.ChooseAction(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.InfoOut();
+					this.ChooseAction(aliveChar, deadChar);
+					break;
+				}
 
 				case "2":
-					{
-						this.MoveX(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.MoveX(aliveChar, deadChar);
+					break;
+				}
 
 				case "3":
-					{
-						this.MoveY(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.MoveY(aliveChar, deadChar);
+					break;
+				}
 
 				case "4":
-					{
-						this.Wounded(aliveChar, deadChar);
-						this.ChooseAction(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.Wounded(aliveChar, deadChar);
+					this.ChooseAction(aliveChar, deadChar);
+					break;
+				}
 
 				case "5":
-					{
-						this.TotalSelfHeal(aliveChar, deadChar);
-						this.ChooseAction(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.TotalSelfHeal(aliveChar, deadChar);
+					this.ChooseAction(aliveChar, deadChar);
+					break;
+				}
 
 				case "6":
-					{
-						this.TeamChange(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.TeamChange(aliveChar, deadChar);
+					break;
+				}
 
 				case "7":
-					{
-						this.ChooseCharacter(aliveChar);
-						this.ChooseAction(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.ChooseCharacter(aliveChar);
+					this.ChooseAction(aliveChar, deadChar);
+					break;
+				}
 
 				default:
-					{
-						this.End(aliveChar, deadChar);
-						break;
-					}
+				{
+					this.End(aliveChar, deadChar);
+					break;
+				}
 			}
 		}
 
@@ -294,22 +294,22 @@ namespace GabrielCharacters
 			switch (team)
 			{
 				case 1:
-					{
-						this._team = true;
-						break;
-					}
+				{
+					this._team = true;
+					break;
+				}
 
 				case 2:
-					{
-						this._team = false;
-						break;
-					}
+				{
+					this._team = false;
+					break;
+				}
 
 				default:
-					{
-						InfoInTeam();
-						break;
-					}
+				{
+					InfoInTeam();
+					break;
+				}
 			}
 		}
 

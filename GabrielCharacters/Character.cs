@@ -526,6 +526,7 @@ namespace GabrielCharacters
 				else
 				{
 					Console.WriteLine("Вас убили.");
+					deadChar.Add(aliveChar.Find(c => c._name == this._name));
 					aliveChar.Remove(aliveChar.Find(c => c._name == this._name));
 					this.EndCheck(aliveChar, deadChar);
 				}

@@ -109,39 +109,32 @@ namespace GabrielCars
 					this.InfoOut();
 					this.ChooseAction(cars);
 					break;
-				
 
 				case "2":
 					this.Refill();
 					this.ChooseAction(cars);
 					break;
-				
 
 				case "3":
 					this.Move();
 					this.ChooseAction(cars);
 					break;
-				
 
 				case "4":
 					this.Accident(cars);
 					this.ChooseAction(cars);
 					break;
-				
 
 				case "5":
 					this.ChooseCar(cars);
 					break;
-				
 
 				case "6":
 					this.CarAppear(cars);
 					break;
-				
 
 				default:
-					break;
-				
+					break;	
 			}
 		}
 

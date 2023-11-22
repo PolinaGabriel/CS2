@@ -1,0 +1,15 @@
+E:\Финская\GabrielCars\GabrielCars\bin\Debug\GabrielCars.exe.config
+E:\Финская\GabrielCars\GabrielCars\bin\Debug\GabrielCars.exe
+E:\Финская\GabrielCars\GabrielCars\bin\Debug\GabrielCars.pdb
+E:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.csproj.AssemblyReference.cache
+E:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.csproj.SuggestedBindingRedirects.cache
+E:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.csproj.CoreCompileInputs.cache
+E:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.exe
+E:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.pdb
+D:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.csproj.AssemblyReference.cache
+D:\Финская\GabrielCars\GabrielCars\obj\Debug\GabrielCars.csproj.CoreCompileInputs.cache
+D:\Финская\GabrielCars\GabrielCars\bin\Debug\ой.exe.config
+D:\Финская\GabrielCars\GabrielCars\bin\Debug\ой.exe
+D:\Финская\GabrielCars\GabrielCars\bin\Debug\ой.pdb
+D:\Финская\GabrielCars\GabrielCars\obj\Debug\ой.exe
+D:\Финская\GabrielCars\GabrielCars\obj\Debug\ой.pdb

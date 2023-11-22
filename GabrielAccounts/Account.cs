@@ -97,56 +97,40 @@ namespace GabrielAccounts
 			switch (actChoice)
 			{
 				case "1":
-					{
-						this.InfoOut();
-						this.ChooseAction(accounts);
-						break;
-					}
+					this.InfoOut();
+					this.ChooseAction(accounts);
+					break;
 
 				case "2":
-					{
-						this.MoreMoney();
-						this.ChooseAction(accounts);
-						break;
-					}
+					this.MoreMoney();
+					this.ChooseAction(accounts);
+					break;
 
 				case "3":
-					{
-						this.LessMoney();
-						this.ChooseAction(accounts);
-						break;
-					}
+					this.LessMoney();
+					this.ChooseAction(accounts);
+					break;
 
 				case "4":
-					{
-						this.Zero();
-						this.ChooseAction(accounts);
-						break;
-					}
+					this.Zero();
+					this.ChooseAction(accounts);
+					break;
 
 				case "5":
-					{
-						this.Transaction(accounts);
-						this.ChooseAction(accounts);
-						break;
-					}
+					this.Transaction(accounts);
+					this.ChooseAction(accounts);
+					break;
 
 				case "6":
-					{
-						this.ChooseAccount(accounts);
-						break;
-					}
+					this.ChooseAccount(accounts);
+					break;
 
 				case "7":
-					{
-						this.AccountAppear(accounts);
-						break;
-					}
+					this.AccountAppear(accounts);
+					break;
 
 				default:
-					{
-						break;
-					}
+					break;	
 			}
 		}
 

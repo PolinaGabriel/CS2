@@ -31,15 +31,6 @@ namespace GabrielCars
 		public Car()
 		{
 			this._numb = "";
-			this._volMax = 0;
-			this._volCur = 0;
-			this._kmWaste = 0;
-			this._x1 = 0;
-			this._y1 = 0;
-			this._x2 = 0;
-			this._y2 = 0;
-			this._km = 0;
-			this._run = 0;
 		}
 
 		/// <summary>
@@ -115,49 +106,42 @@ namespace GabrielCars
 			switch (actChoice)
 			{
 				case "1":
-				{
 					this.InfoOut();
 					this.ChooseAction(cars);
 					break;
-				}
+				
 
 				case "2":
-				{
 					this.Refill();
 					this.ChooseAction(cars);
 					break;
-				}
+				
 
 				case "3":
-				{
 					this.Move();
 					this.ChooseAction(cars);
 					break;
-				}
+				
 
 				case "4":
-				{
 					this.Accident(cars);
 					this.ChooseAction(cars);
 					break;
-				}
+				
 
 				case "5":
-				{
 					this.ChooseCar(cars);
 					break;
-				}
+				
 
 				case "6":
-				{
 					this.CarAppear(cars);
 					break;
-				}
+				
 
 				default:
-				{
 					break;
-				}
+				
 			}
 		}
 

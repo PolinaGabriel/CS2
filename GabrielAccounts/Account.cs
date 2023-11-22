@@ -59,84 +59,84 @@ namespace GabrielAccounts
 			}
 		}
 
-        /// <summary>
-        /// Заполнение информации о счёте
-        /// </summary>
-        /// <param name="accounts">список счетов</param>
-        private void InfoIn(List<Account> accounts)
-        {
-            this.InfoInNumb(accounts);
-            this.InfoInName();
-            this.InfoInMoney();
-        }
-
-        /// <summary>
-        /// Заполнение номера счёта
-        /// </summary>
-        /// <param name="accounts">список счетов</param>
-        private void InfoInNumb(List<Account> accounts)
-        {
-            Console.Write("Введите номер счёта (не может быть меньше нуля): ");
-            int numb = Convert.ToInt32(Console.ReadLine());
-            if (numb < 0)
-            {
-                this.InfoInNumb(accounts);
-            }
-            int a = 0;
-            foreach (Account account in accounts)
-            {
-                if (numb == account._numb)
-                {
-                    Console.WriteLine("Счёт с таким номером уже существует.");
-                    a++;
-                    this.InfoInNumb(accounts);
-                }
-            }
-            if (a == 0)
-            {
-                this._numb = numb;
-            }
-        }
-
-        /// <summary>
-        /// Заполнение ФИО владельца счёта
-        /// </summary>
-        private void InfoInName()
-        {
-            Console.Write("Введите ФИО владельца (не может остаться пустым): ");
-            string name = Console.ReadLine();
-            if (name == "")
-            {
-                this.InfoInName();
-            }
-            else
-            {
-                this._name = name;
-            }
-        }
-
-        /// <summary>
-        /// Заполнение суммы на счету
-        /// </summary>
-        private void InfoInMoney()
-        {
-            Console.Write("Положите на счёт деньги (сумма должна быть больше нуля): ");
-            double money = Convert.ToDouble(Console.ReadLine());
-            if (money < 0)
-            {
-                this.InfoInMoney();
-            }
-            else
-            {
-                this._money = Math.Round(money, 2);
-            }
-        }
-
-        /// <summary>
-        /// Выбор счёта
-        /// </summary>
-        /// <param name="accounts">список счетов</param>
-        private void ChooseAccount(List<Account> accounts)
+	        /// <summary>
+	        /// Заполнение информации о счёте
+	        /// </summary>
+	        /// <param name="accounts">список счетов</param>
+	        private void InfoIn(List<Account> accounts)
+	        {
+		        this.InfoInNumb(accounts);
+		        this.InfoInName();
+		        this.InfoInMoney();
+	        }
+	
+	        /// <summary>
+	        /// Заполнение номера счёта
+	        /// </summary>
+	        /// <param name="accounts">список счетов</param>
+	        private void InfoInNumb(List<Account> accounts)
+	        {
+		        Console.Write("Введите номер счёта (не может быть меньше нуля): ");
+		        int numb = Convert.ToInt32(Console.ReadLine());
+		        if (numb < 0)
+		        {
+		        	this.InfoInNumb(accounts);
+		        }
+		        int a = 0;
+		        foreach (Account account in accounts)
+		        {
+			        if (numb == account._numb)
+			        {
+				        Console.WriteLine("Счёт с таким номером уже существует.");
+				        a++;
+				        this.InfoInNumb(accounts);
+			        }
+		        }
+		        if (a == 0)
+		        {
+				this._numb = numb;
+		        }
+	        }
+	
+	        /// <summary>
+	        /// Заполнение ФИО владельца счёта
+	        /// </summary>
+	        private void InfoInName()
+	        {
+		        Console.Write("Введите ФИО владельца (не может остаться пустым): ");
+		        string name = Console.ReadLine();
+		        if (name == "")
+		        {
+		        	this.InfoInName();
+		        }
+		        else
+		        {
+		        	this._name = name;
+		        }
+	        }
+	
+	        /// <summary>
+	        /// Заполнение суммы на счету
+	        /// </summary>
+	        private void InfoInMoney()
+	        {
+		        Console.Write("Положите на счёт деньги (сумма должна быть больше нуля): ");
+		        double money = Convert.ToDouble(Console.ReadLine());
+		        if (money < 0)
+		        {
+		        	this.InfoInMoney();
+		        }
+		        else
+		        {
+		        	this._money = Math.Round(money, 2);
+		        }
+	        }
+	
+	        /// <summary>
+	        /// Выбор счёта
+	        /// </summary>
+	        /// <param name="accounts">список счетов</param>
+	        private void ChooseAccount(List<Account> accounts)
 		{
 			Console.WriteLine("Выберите счёт:\n");
 			foreach (Account account in accounts)
@@ -155,22 +155,22 @@ namespace GabrielAccounts
 			}
 			Console.WriteLine();
 		}
-
-        /// <summary>
-        /// Вывод информации о счёте
-        /// </summary>
-        private void InfoOut()
-        {
-            Console.WriteLine("№" + this._numb);
-            Console.WriteLine("Владелец: " + this._name);
-            Console.WriteLine("Сумма: " + this._money);
-        }
-
-        /// <summary>
-        /// Выбор действия
-        /// </summary>
-        /// <param name="accounts">список счетов</param>
-        private void ChooseAction(List<Account> accounts)
+	
+	        /// <summary>
+	        /// Вывод информации о счёте
+	        /// </summary>
+	        private void InfoOut()
+	        {
+		        Console.WriteLine("№" + this._numb);
+		        Console.WriteLine("Владелец: " + this._name);
+		        Console.WriteLine("Сумма: " + this._money);
+	        }
+	
+	        /// <summary>
+	        /// Выбор действия
+	        /// </summary>
+	        /// <param name="accounts">список счетов</param>
+	        private void ChooseAction(List<Account> accounts)
 		{
 			Console.WriteLine("\nВыберите действие:\n1 - информация о счёте\n2 - внести средства\n3 - снять средства\n4 - обнулить счёт\n5 - перевести средства\n6 - выбрать другой счёт\n7 - открыть новый счёт\nEnter - выход\n");
 			string actChoice = Console.ReadLine();
@@ -181,35 +181,35 @@ namespace GabrielAccounts
 					this.InfoOut();
 					this.ChooseAction(accounts);
 					break;
-
+	
 				case "2":
 					this.MoreMoney();
 					this.ChooseAction(accounts);
 					break;
-
+	
 				case "3":
 					this.LessMoney();
 					this.ChooseAction(accounts);
 					break;
-
+	
 				case "4":
 					this.Zero();
 					this.ChooseAction(accounts);
 					break;
-
+	
 				case "5":
 					this.Transaction(accounts);
 					this.ChooseAction(accounts);
 					break;
-
+	
 				case "6":
 					this.ChooseAccount(accounts);
 					break;
-
+	
 				case "7":
 					this.AccountAppear(accounts);
 					break;
-
+	
 				default:
 					break;
 			}

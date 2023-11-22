@@ -20,9 +20,7 @@ namespace GabrielAccounts
 		/// </summary>
 		public Account()
 		{
-			this._numb = 0;
 			this._name = "";
-			this._money = 0;
 		}
 
 		/// <summary>

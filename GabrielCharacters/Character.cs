@@ -27,14 +27,6 @@ namespace GabrielCharacters
 		public Character()
 		{
 			this._name = "";
-			this._hpMax = 0;
-			this._hpCur = 0;
-			this._punch = 0;
-			this._team = true;
-			this._x = 0;
-			this._y = 0;
-			this._vict = 0;
-			this._heal = 0;
 		}
 
 		/// <summary>
@@ -128,57 +120,44 @@ namespace GabrielCharacters
 				this._heal = 0;
 				this.TeamCheck(aliveChar, deadChar);
 			}
-            else
-            {
-                Console.WriteLine("\nВыберите действие:\n1 - информация о персонаже\n2 - переместиться по горизонтали\n3 - переместиться по вертикали\n4 - полечить союзника\n5 - сменить команду\n6 - сменить персонажа\nEnter - закончить игру\n");
-                string actChoice = Console.ReadLine();
-                Console.WriteLine();
-                switch (actChoice)
-                {
-                    case "1":
-                        {
-                            this.InfoOut();
-                            this.ChooseAction(aliveChar, deadChar);
-                            break;
-                        }
-
-                    case "2":
-                        {
-                            this.MoveX(aliveChar, deadChar);
-                            break;
-                        }
-
-                    case "3":
-                        {
-                            this.MoveY(aliveChar, deadChar);
-                            break;
-                        }
-
-                    case "4":
-                        {
-                            this.Wounded(aliveChar, deadChar);
-                            break;
-                        }
-
-                    case "5":
-                        {
-                            this.TeamChange(aliveChar, deadChar);
-                            break;
-                        }
-
-                    case "6":
-                        {
-                            this.ChooseCharacter(aliveChar, deadChar);
-                            break;
-                        }
-
-                    default:
-                        {
-                            this.End(aliveChar, deadChar);
-                            break;
-                        }
-                }
-            }
+		        else
+		        {
+		        	Console.WriteLine("\nВыберите действие:\n1 - информация о персонаже\n2 - переместиться по горизонтали\n3 - переместиться по вертикали\n4 - полечить союзника\n5 - сменить команду\n6 - сменить персонажа\nEnter - закончить игру\n");
+		                string actChoice = Console.ReadLine();
+		                Console.WriteLine();
+		                switch (actChoice)
+		                {
+		                	case "1":
+		                		this.InfoOut();
+		                            	this.ChooseAction(aliveChar, deadChar);
+		                            	break;
+						
+		                	
+					case "2":
+		                        	this.MoveX(aliveChar, deadChar);
+		                        	break;
+		
+		                	case "3":
+			                        this.MoveY(aliveChar, deadChar);
+			                        break;
+		
+		                	case "4":
+			                        this.Wounded(aliveChar, deadChar);
+			                        break;
+		
+		                	case "5":
+			                        this.TeamChange(aliveChar, deadChar);
+			                        break;
+		
+		                	case "6":
+			                        this.ChooseCharacter(aliveChar, deadChar);
+			                        break;
+		
+		                	default:
+			                        this.End(aliveChar, deadChar);
+			                        break;
+		                }
+		        }
 		}
 
 		/// <summary>
@@ -258,35 +237,29 @@ namespace GabrielCharacters
 			}
 		}
 
-        /// <summary>
-        /// Заполнение команды персонажа
-        /// </summary>
-        /// <param name="aliveChar">список живых персонажей</param>
-        private void InfoInTeam(List<Character> aliveChar)
+	        /// <summary>
+	        /// Заполнение команды персонажа
+	        /// </summary>
+	        /// <param name="aliveChar">список живых персонажей</param>
+	        private void InfoInTeam(List<Character> aliveChar)
 		{
 			Console.WriteLine("Выберите команду: 1 2");
 			int team0 = Convert.ToInt32(Console.ReadLine());
 			bool team = true;
-            switch (team0)
-            {
-                case 1:
-                {
-                    team = true;
-                    break;
-                }
-
-                case 2:
-                {
-                    team = false;
-                    break;
-                }
-
-                default:
-                {
-                    this.InfoInTeam(aliveChar);
-                    break;
-                }
-            }
+	            	switch (team0)
+		        {
+		        	case 1:
+		                	team = true;
+		                	break;
+		
+		                case 2:
+			                team = false;
+			                break;
+		
+		                default:
+			                this.InfoInTeam(aliveChar);
+			                break;
+		        }
 			if (aliveChar.Count == 2 && aliveChar[0]._team == team)
 			{
 				Console.WriteLine("Для игры Вам необходимо создать хотя бы по одному персонажу в разных командах.");
@@ -467,8 +440,8 @@ namespace GabrielCharacters
 			}
 			else
 			{
-                Console.WriteLine("В этой точке враг не обнаружен.");
-                this.ChooseAction(aliveChar, deadChar);
+		                Console.WriteLine("В этой точке враг не обнаружен.");
+		                this.ChooseAction(aliveChar, deadChar);
 			}
 		}
 
@@ -566,22 +539,22 @@ namespace GabrielCharacters
 			}
 		}
 
-        /// <summary>
-        /// Нанесение полного урона
-        /// </summary>
-        /// <param name="character">противник</param>
-        /// <param name="aliveChar">список живых персонажей</param>
-        /// <param name="deadChar">список мёртвых персонажей</param>
-        private void UltDamage(Character character, List<Character> aliveChar, List<Character> deadChar)
+	        /// <summary>
+	        /// Нанесение полного урона
+	        /// </summary>
+	        /// <param name="character">противник</param>
+	        /// <param name="aliveChar">список живых персонажей</param>
+	        /// <param name="deadChar">список мёртвых персонажей</param>
+	        private void UltDamage(Character character, List<Character> aliveChar, List<Character> deadChar)
 		{
 			Console.WriteLine("Есть возможность нанести " + character._name + " полный урон. Чтобы сделать это, нажмите Enter. Если не хотите, введите '-' и нажмите Enter.");
 			string answ = Console.ReadLine();
 			if (answ != "-")
 			{
 				character._hpCur = -1;
-                deadChar.Add(character);
-                aliveChar.Remove(character);
-                this._vict -= 10;
+		                deadChar.Add(character);
+		                aliveChar.Remove(character);
+		                this._vict -= 10;
 			}
 		}
 
@@ -613,28 +586,28 @@ namespace GabrielCharacters
 			aliveChar.Remove(character);
 		}
 
-        /// <summary>
-        /// Восстановление здоровья
-        /// </summary>
-        private void TotalSelfHeal()
-        {
-            Console.WriteLine("Вы можете применить полное лечение. Чтобы сделать это, нажмите Enter. Если не хотите, введите '-' и нажмите Enter.");
-            string answ = Console.ReadLine();
-            if (answ != "-")
-            {
-                this._hpCur = this._hpMax;
-                this._vict -= 5;
-                Console.WriteLine("Здоровье восстановлено.");
-            }
-        }
+	        /// <summary>
+	        /// Восстановление здоровья
+	        /// </summary>
+	        private void TotalSelfHeal()
+	        {
+		        Console.WriteLine("Вы можете применить полное лечение. Чтобы сделать это, нажмите Enter. Если не хотите, введите '-' и нажмите Enter.");
+		        string answ = Console.ReadLine();
+		        if (answ != "-")
+		        {
+		        	this._hpCur = this._hpMax;
+		                this._vict -= 5;
+		                Console.WriteLine("Здоровье восстановлено.");
+		        }
+	        }
 
 
-        /// <summary>
-        /// Бегство
-        /// </summary>
-        /// <param name="aliveChar">список живых персонажей</param>
-        /// <param name="deadChar">список мёртвых персонажей</param>
-        private void Run(List<Character> aliveChar, List<Character> deadChar)
+	        /// <summary>
+	        /// Бегство
+	        /// </summary>
+	        /// <param name="aliveChar">список живых персонажей</param>
+	        /// <param name="deadChar">список мёртвых персонажей</param>
+	        private void Run(List<Character> aliveChar, List<Character> deadChar)
 		{
 			Console.WriteLine("Бегите.");
 			Console.Write("Переместиться по горизонтали на: ");
@@ -658,17 +631,6 @@ namespace GabrielCharacters
 			{
 				this.End(aliveChar, deadChar);
 			}
-			/*else
-			{
-				if (this._hpCur < 0)
-				{
-					this.ChooseCharacter(aliveChar, deadChar);
-				}
-				else
-				{
-					this.ChooseAction(aliveChar, deadChar);
-				}
-			}*/
 		}
 
 		/// <summary>
@@ -757,17 +719,17 @@ namespace GabrielCharacters
 			else
 			{
 				Console.WriteLine("Лечить некого.");
-                this.ChooseAction(aliveChar, deadChar);
-            }
+                		this.ChooseAction(aliveChar, deadChar);
+            		}
 		}
 
-        /// <summary>
-        /// Лечение
-        /// </summary>
-        /// <param name="character">союзник</param>
-        /// <param name="aliveChar">список живых персонажей</param>
-        /// <param name="deadChar">список мёртвых персонажей</param>
-        private void Heal(Character character, List<Character> aliveChar, List<Character> deadChar)
+	        /// <summary>
+	        /// Лечение
+	        /// </summary>
+	        /// <param name="character">союзник</param>
+	        /// <param name="aliveChar">список живых персонажей</param>
+	        /// <param name="deadChar">список мёртвых персонажей</param>
+	        private void Heal(Character character, List<Character> aliveChar, List<Character> deadChar)
 		{
 			Console.Write("Введите количество единиц лечения: ");
 			int hp = Convert.ToInt32(Console.ReadLine());
@@ -788,12 +750,12 @@ namespace GabrielCharacters
 			}
 			else
 			{
-                character._hpCur += hp;
-                character._heal++;
-                this._hpCur -= hp;
-                Console.WriteLine(character._name + " получил лечение. Здоровье: " + character._hpCur);
+		                character._hpCur += hp;
+		                character._heal++;
+		                this._hpCur -= hp;
+		                Console.WriteLine(character._name + " получил лечение. Здоровье: " + character._hpCur);
 				this.ChooseAction(aliveChar, deadChar);
-            }
+            		}
 		}
 
 		/// <summary>

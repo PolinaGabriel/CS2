@@ -197,7 +197,6 @@ namespace GabrielCars
 		        Console.WriteLine("Тип: легковой автомобиль");
 		        Console.WriteLine("Номер: " + this._numb);
 		        Console.WriteLine("Бак: " + this._volCur + "/" + this._volMax + " л.");
-		        Console.WriteLine("Расход топлива на 100 км: " + this._kmWaste);
 		        Console.WriteLine("Пробег: " + this._run + " км.");
 	        }
 	

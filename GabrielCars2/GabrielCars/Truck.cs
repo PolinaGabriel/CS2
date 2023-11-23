@@ -11,7 +11,7 @@ namespace GabrielCars
         private double _cargoCur; //масса груза (кг)
         private double _cargoMax; //максимальная разрешённая масса груза (кг)
         private double _percent; //коэффициент для скорости
-        private double _track; //расстояние между двумя точками траектории поездки
+        private double _track; //расстояние между двумя точками траектории маршрута (км)
 
         /// <summary>
         /// Создание грузовика

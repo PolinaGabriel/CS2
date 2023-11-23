@@ -16,11 +16,7 @@ namespace GabrielCars
         	private double _volCur; //объём топлива в баке (л)
         	private double _speedCur; //скорость движения (км/ч)
         	private double _speedMax; //максимальная скорость движения (км/ч)
-        	private double _kmWaste; //расход топлива на 100 км (Л)
-        	private double _x1; //начальная координата x
-        	private double _y1; //начальная координата y
-        	private double _x2; //конечная координата x
-        	private double _y2; //конечная координата y
+        	private double _kmWaste; //расход топлива на 100 км (л)
         	private double _km; //расстояние (км)
         	private List<string> _traj = new List<string>(); //траектория движения
         	private double _run; //пробег (км)
@@ -253,40 +249,48 @@ namespace GabrielCars
 	        /// </summary>
 	        private void Way()
 	        {
-		        Console.WriteLine("Введите координаты начала пути:");
-		        Console.Write("x1: ");
-		        double x1 = Convert.ToDouble(Console.ReadLine());
-		        Console.Write("y1: ");
-		        double y1 = Convert.ToDouble(Console.ReadLine());
-		        Console.WriteLine("Введите координаты конца пути:");
-		        Console.Write("x2: ");
-		        double x2 = Convert.ToDouble(Console.ReadLine());
-		        Console.Write("y2: ");
-		        double y2 = Convert.ToDouble(Console.ReadLine());
-		        this._x1 = Math.Round(x1, 2);
-		        this._y1 = Math.Round(y1, 2);
-		        this._x2 = Math.Round(x2, 2);
-		        this._y2 = Math.Round(y2, 2);
-		        this._km = Math.Round(Math.Sqrt(Math.Pow((this._x2 - this._x1), 2) + Math.Pow((this._y2 - this._y1), 2)), 2);
-		        List<double> x = new List<double>();
-		        List<double> y = new List<double>();
-		        while (this._x1 <= this._x2)
-		        {
-				x.Add(this._x1);
-		        	this._x1++;
-		        }
-		        this._x1 = Math.Round(x1, 2);
-		        for (int i = 0; i < x.Count; i++)
-		        {
-		       		y.Add(this._y1 + ((double)(this._y2 - this._y1) * (x[i] - this._x1) / (this._x2 - this._x1)));
-		        }
-		        for (int i = 0; i < x.Count; i++)
-		        {
-		        	this._traj.Add(Convert.ToString(x[i] + " ; " + y[i]));
-		        }
-		        x.Clear();
-		        y.Clear();
-		        Console.WriteLine("Маршрут спланирован.");
+			Console.WriteLine("Введите координаты начала пути:");
+			Console.Write("x1: ");
+			double x1 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+			double x0 = x1;
+			Console.Write("y1: ");
+			double y1 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+			Console.WriteLine("Введите координаты конца пути:");
+			Console.Write("x2: ");
+			double x2 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+			Console.Write("y2: ");
+			double y2 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+			this._km = Math.Round(Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2)), 2);
+			List<double> x = new List<double>();
+			List<double> y = new List<double>();
+			if (x1 < x2)
+			{
+				while (x1 <= x2)
+				{
+					x.Add(x1);
+					x1++;
+				}
+			}
+			else if (x1 > x2)
+			{
+				while (x1 >= x2)
+				{
+					x.Add(x1);
+					x1--;
+				}
+			}
+			x1 = x0;
+			for (int i = 0; i < x.Count; i++)
+			{
+				y.Add(y1 + ((double)(y2 - y1) * (x[i] - x1) / (x2 - x1)));
+			}
+			for (int i = 0; i < x.Count; i++)
+			{
+				this._traj.Add(Convert.ToString(x[i] + " ; " + y[i]));
+			}
+			x.Clear();
+			y.Clear();
+			Console.WriteLine("Маршрут спланирован.");
 	        }
 	
 	        /// <summary>

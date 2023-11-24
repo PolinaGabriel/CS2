@@ -318,11 +318,17 @@ namespace GabrielCars
 	        /// </summary>
 	        private void Move()
 		{
+			if (this._volCur == 0)
+			{
+				Console.WriteLine("Заправьтесь.");
+				this.Refill();
+				this.Move();
+			}	
 			if (this._traj.Count == 0)
 			{
 				Console.WriteLine("Спланируйте поездку.");
-				Way();
-				Move();
+				this.Way();
+				this.Move();
 			}
 			else
 			{

@@ -337,7 +337,7 @@ namespace GabrielCars
 					else
 					{
 						this._run += Math.Round((double)this._volCur / this._kmWaste * 100, 2);
-						Console.WriteLine("Вы проехали " + Math.Round((double)this._volCur / this._kmWaste * 100, 2) + " км. Ваш текущий пробег: " + this._run + " км. Для дальнейшей поездки необходимо дозаправить " + Left() + " л топлива. Поедете дальше?");
+						Console.WriteLine("Вы проехали " + Math.Round((double)this._volCur / this._kmWaste * 100, 2) + " км. Ваш текущий пробег: " + this._run + " км. Для дальнейшей поездки всего необходимо " + Left() + " л топлива. Поедете дальше?");
 						string answ = Console.ReadLine();
 						if (answ == "нет")
 						{

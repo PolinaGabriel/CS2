@@ -222,7 +222,7 @@ namespace GabrielCars
             }
             else
             {
-                Console.WriteLine("Текущий объём топлива в баке: " + this._volCur + " л. Необходима дозаправка.");
+                Console.WriteLine("Точка " + point + ". Текущий объём топлива в баке: " + this._volCur + " л. Необходима дозаправка.");
                 this.Refill();
                 goto Fuel;
             } 

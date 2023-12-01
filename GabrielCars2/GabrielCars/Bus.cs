@@ -243,7 +243,13 @@ namespace GabrielCars
         /// <param name="point">точка маршрута, в которую приехал автобус</param>
         private void PassIn()
         {
-            Console.Write("Число вошедших пассажиров: ");
+            if (this._passCur == this._passMax)
+		{
+		    Console.WriteLine("В автобусе нет свободных мест.");
+		}
+  		else
+	    {
+     		Console.Write("Число вошедших пассажиров: ");
             int pass = Convert.ToInt32(Console.ReadLine());
             if (pass < 0)
             {
@@ -271,6 +277,7 @@ namespace GabrielCars
                     this._percent = 0.2;
                 }
             }
+	    }
         }
 
         /// <summary>

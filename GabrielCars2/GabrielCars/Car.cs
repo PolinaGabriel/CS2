@@ -485,17 +485,51 @@ namespace GabrielCars
 		protected void Accident(Car car, List<Car> cars)
 		{
 			int acc = 0;
+			string place = "";
 			for (int i = 0; i < this._traj.Count; i++)
 			{
 				for (int j = 0; j < car._traj.Count; j++)
 				{
-					if (this._traj[i] == car._traj[j])
+					if (i != 0 && j != 0 && i != this._traj.Count - 1 && j != car._traj.Count - 1)
 					{
-						acc++;
-					}
+						string a = this._traj[i];
+						string b = car._traj[j];
+						if (a.Contains("+") == true || a.Contains("-") == true || a.Contains(".") == true)
+						{
+							a = a.Substring(0, a.Count() - 1);
+						}
+						if (b.Contains("+") == true || b.Contains("-") == true || b.Contains(".") == true)
+						{
+							b = b.Substring(0, b.Count() - 1);
+						}
+						if (a == b)
+						{
+							acc++;
+							place = this._traj[i];
+						}
+					}   
 				}
 			}
-			Console.WriteLine("Количество возможных аварий с участием " + this._numb + " и " + car._numb + ": " + acc);
+			if (acc == 1)
+			{
+				Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb + "\n" + "Возможный участок аварий: " + place + "\n" + "Количество возможных аварий: " + acc);
+			}
+			else
+			{
+				string start = "";
+				string fin = "";
+				if (this._traj.Count < car._traj.Count)
+				{
+					start = this._traj[1];
+					fin = this._traj[this._traj.Count - 2];
+				}
+				else
+				{
+					start = car._traj[1];
+					fin = car._traj[this._traj.Count - 2];
+				}
+				Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb + "\n" + "Возможный участок аварий: " + start + " - " + fin + "\n" + "Количество возможных аварий: " + acc);
+			}
 			this.ChooseAction(cars);
 		}
 	}

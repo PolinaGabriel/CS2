@@ -39,7 +39,7 @@ namespace GabrielCars
         /// <summary>
         /// Планирование маршрута
         /// </summary>
-        protected override void Way() //отличается от базового только вызовом метода с остановками, от Bus названиями
+        protected override void Way()
         {
             Console.WriteLine("Введите координаты базы:");
             Console.Write("x1: ");

@@ -12,7 +12,7 @@ namespace GabrielCars
         private double _cargoMax; //максимальная разрешённая масса груза (кг)
         private double _percent; //коэффициент для скорости
         private double _track; //расстояние между двумя точками траектории маршрута (км)
-
+        
         /// <summary>
         /// Создание грузовика
         /// </summary>
@@ -24,7 +24,7 @@ namespace GabrielCars
             this._cargoMax = 2000;
             this._percent = 1;
         }
-
+        
         /// <summary>
         /// Вывод информации об автомобиле
         /// </summary>
@@ -35,11 +35,11 @@ namespace GabrielCars
             Console.WriteLine("Бак: " + this._volCur + "/" + this._volMax + " л.");
             Console.WriteLine("Пробег: " + this._run + " км.");
         }
-
+        
         /// <summary>
         /// Планирование маршрута
         /// </summary>
-        protected override void Way() //отличается от базового только вызовом метода с остановками, от Truck названиями
+        protected override void Way() //отличается от базового только вызовом метода с остановками, от Bus названиями
         {
             Console.WriteLine("Введите координаты базы:");
             Console.Write("x1: ");
@@ -52,7 +52,7 @@ namespace GabrielCars
             double x2 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
             Console.Write("y2: ");
             double y2 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
-            this._km = Math.Round(Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2)), 2);
+            this._km = Math.Round((Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2))) * 2, 2);
             if (x1 == x2)
             {
                 this.Way();
@@ -84,7 +84,7 @@ namespace GabrielCars
                 Console.WriteLine("Маршрут спланирован.");
             }
         }
-
+        
         /// <summary>
         /// Выбор остановок на маршруте и расчёт расстояния между ними
         /// </summary>
@@ -139,7 +139,7 @@ namespace GabrielCars
                 this._track = Math.Round((double)this._km / (this._traj.Count - 1), 2);
             }  
         }
-
+        
         /// <summary>
         /// Поездка
         /// </summary>
@@ -181,7 +181,7 @@ namespace GabrielCars
                 this._traj.Clear();
             }
         }
-
+        
         /// <summary>
         /// Часть поездки между двумя точками маршрута
         /// </summary>
@@ -219,7 +219,7 @@ namespace GabrielCars
                 goto Fuel;
             }
         }
-
+        
         /// <summary>
         /// Разгон
         /// </summary>
@@ -228,7 +228,7 @@ namespace GabrielCars
         {
             this._speedCur = v * this._percent;
         }
-
+        
         /// <summary>
         /// Погрузка
         /// </summary>
@@ -265,7 +265,7 @@ namespace GabrielCars
                 Console.WriteLine("Груз принят.");
             }
         }
-
+        
         /// <summary>
         /// Разгрузка
         /// </summary>

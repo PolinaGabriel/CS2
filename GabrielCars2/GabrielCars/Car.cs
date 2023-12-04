@@ -459,17 +459,15 @@ namespace GabrielCars
 				if (comp > 0)
 				{
 					Console.WriteLine("Выберите автомобиль для сверки траекторий: ");
-					int i = 1;
 					foreach (Car car in cars)
 					{
 						if (car._numb != this._numb && car._traj.Count != 0)
 						{
-							Console.WriteLine(i + ". " + car._numb);
-							i++;
+							Console.WriteLine(car._numb);
 						}
 					}
-					int index = Convert.ToInt32(Console.ReadLine()) - 1;
-					this.Accident(cars[index], cars);
+					string index = Console.ReadLine();
+					this.Accident(cars.Find(c => c._numb == index), cars);
 				}
 				else
 				{

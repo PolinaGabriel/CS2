@@ -249,6 +249,7 @@ namespace GabrielCars
 		/// </summary>
 		protected virtual void Way()
 		{
+			this._traj.Clear();
 			Console.WriteLine("Введите координаты начала пути:");
 			Console.Write("x1: ");
 			double x1 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);

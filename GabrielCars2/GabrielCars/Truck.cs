@@ -41,6 +41,7 @@ namespace GabrielCars
         /// </summary>
         protected override void Way()
         {
+            this._traj.Clear();
             Console.WriteLine("Введите координаты базы:");
             Console.Write("x1: ");
             double x1 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);

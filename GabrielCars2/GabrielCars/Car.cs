@@ -486,50 +486,68 @@ namespace GabrielCars
 		{
 			int acc = 0;
 			string place = "";
-			for (int i = 0; i < this._traj.Count; i++)
+			for (int i = 1; i < (this._traj.Count / 2) + 1; i++)
 			{
-				for (int j = 0; j < car._traj.Count; j++)
+				for (int j = 1; j < (car._traj.Count / 2) + 1; j++)
 				{
-					if (i != 0 && j != 0 && i != this._traj.Count - 1 && j != car._traj.Count - 1)
+					string a = this._traj[i];
+					if (a.Contains("+") == true || a.Contains("-") == true || a.Contains(".") == true)
 					{
-						string a = this._traj[i];
-						string b = car._traj[j];
-						if (a.Contains("+") == true || a.Contains("-") == true || a.Contains(".") == true)
+						a = a.Substring(0, a.Count() - 1);
+					}
+					string b = car._traj[j];
+					if (b.Contains("+") == true || b.Contains("-") == true || b.Contains(".") == true)
+					{
+						b = b.Substring(0, b.Count() - 1);
+					}
+					if (a == b)
+					{
+						acc++;
+						place = this._traj[i];
+						if (place.Contains("+") == true || a.Contains("-") == true || a.Contains(".") == true)
 						{
-							a = a.Substring(0, a.Count() - 1);
-						}
-						if (b.Contains("+") == true || b.Contains("-") == true || b.Contains(".") == true)
-						{
-							b = b.Substring(0, b.Count() - 1);
-						}
-						if (a == b)
-						{
-							acc++;
-							place = this._traj[i];
+							place = place.Substring(0, place.Count() - 1);
 						}
 					}   
 				}
 			}
+			Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb);
 			if (acc == 1)
 			{
-				Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb + "\n" + "Возможный участок аварий: " + place + "\n" + "Количество возможных аварий: " + acc);
+				Console.WriteLine("Возможный аварийный участок: " + place);
 			}
 			else
 			{
-				string start = "";
-				string fin = "";
 				if (this._traj.Count < car._traj.Count)
 				{
-					start = this._traj[1];
-					fin = this._traj[this._traj.Count - 2];
+					string start = this._traj[1];
+					if (start.Contains("+") == true || start.Contains("-") == true || start.Contains(".") == true)
+					{
+						start = start.Substring(0, start.Count() - 1);
+					}
+					string fin = this._traj[this._traj.Count / 2];
+					if (fin.Contains("+") == true || fin.Contains("-") == true || fin.Contains(".") == true)
+					{
+						fin = fin.Substring(0, fin.Count() - 1);
+					}
+					Console.WriteLine("Возможный аварийный участок: [" + start + " - " + fin + "]");
 				}
 				else
 				{
-					start = car._traj[1];
-					fin = car._traj[this._traj.Count - 2];
+					string start = car._traj[1];
+					string fin = car._traj[car._traj.Count / 2];
+					if (start.Contains("+") == true || start.Contains("-") == true || start.Contains(".") == true)
+					{
+						start = start.Substring(0, start.Count() - 1);
+					}
+					if (fin.Contains("+") == true || fin.Contains("-") == true || fin.Contains(".") == true)
+					{
+						fin = fin.Substring(0, fin.Count() - 1);
+					}
+					Console.WriteLine("Возможный аварийный участок: [" + start + " - " + fin + "]");
 				}
-				Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb + "\n" + "Возможный участок аварий: " + start + " - " + fin + "\n" + "Количество возможных аварий: " + acc);
 			}
+			Console.WriteLine("Количество возможных аварий: " + acc);
 			this.ChooseAction(cars);
 		}
 	}

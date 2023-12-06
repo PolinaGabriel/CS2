@@ -1,0 +1,8 @@
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\bin\Debug\GbrielTwentyFour.exe.config
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\bin\Debug\GbrielTwentyFour.exe
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\bin\Debug\GbrielTwentyFour.pdb
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\obj\Debug\GbrielTwentyFour.csproj.AssemblyReference.cache
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\obj\Debug\GbrielTwentyFour.csproj.SuggestedBindingRedirects.cache
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\obj\Debug\GbrielTwentyFour.csproj.CoreCompileInputs.cache
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\obj\Debug\GbrielTwentyFour.exe
+E:\Финская\GbrielTwentyFour\GbrielTwentyFour\obj\Debug\GbrielTwentyFour.pdb

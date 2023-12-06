@@ -465,17 +465,58 @@ namespace GabrielCars
 	        private void Accident(Car car, List<Car> cars)
 		{
 			int acc = 0;
-			for (int i = 0; i < this._traj.Count; i++)
+		        string place = "";
+			for (int i = 1; i <= this._traj.Count() - 1; i++)
 			{
-				for (int j = 0; j < car._traj.Count; j++)
+				for (int j = 1; j <= this._traj.Count() - 1; j++)
 				{
-					if (this._traj[i] == car._traj[j])
-					{
+				        if (this._traj[i] == car._traj[j])
+				        {
 						acc++;
-					}
+					        place = this._traj[i];
+				        }
 				}
 			}
-			Console.WriteLine("Количество возможных аварий с участием " + this._numb + " и " + car._numb + ": " + acc);
+		        Console.WriteLine("Автомобили: " + this._numb + ", " + car._numb);
+		        if (acc == 0)
+		        {
+		        	Console.WriteLine("Траектории движения автомобилей не пересекаются.");
+		        }
+		        else if (acc == 1)
+		        {
+		        	Console.WriteLine("Возможный аварийный участок: " + place);
+		        }
+		        else
+		        {
+				string start = "";
+				string fin = "";
+				if (this._traj[1] == car._traj[1])
+				{
+					start = this._traj[1];
+				}
+				else if (Convert.ToDouble(this._traj[1].Remove(this._traj[1].IndexOf(";"), 1)) > Convert.ToDouble(car._traj[1].Remove(car._traj[1].IndexOf(";"), 1)))
+				{
+					start = this._traj[1];
+				}
+				else
+				{
+					start = car._traj[1];
+				}
+				if (Convert.ToDouble(this._traj.Last().Remove(this._traj.Last().IndexOf(";"), 1)) == Convert.ToDouble(this._traj.Last().Remove(this._traj.Last().IndexOf(";"), 1)))
+				{
+					fin = this._traj.Last();
+				}
+				else if (Convert.ToDouble(this._traj.Last().Remove(this._traj.Last().IndexOf(";"), 1)) > Convert.ToDouble(this._traj.Last().Remove(this._traj.Last().IndexOf(";"), 1)))
+				{
+					fin = this._traj.Last();
+				}
+				else
+				{
+					fin = this._traj.Last();
+				}
+				Console.WriteLine("Возможный аварийный участок: [" + start + " - " + fin + "]");
+		        }
+		        Console.WriteLine("Количество возможных аварий: " + acc);
 			this.ChooseAction(cars);
 	        }
 	}

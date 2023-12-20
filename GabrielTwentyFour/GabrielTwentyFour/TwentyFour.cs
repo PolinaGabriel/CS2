@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace GabrielTwentyFour
 			NumberIn('b');
 			NumberIn('c');
 			NumberIn('d');
-			Calculation(this._a, this._b, this._c, this._d, Signs());
+			Search(this._a, this._b, this._c, this._d, Signs());
 			Console.WriteLine("Хотите проверить ещё карточку?\n1 - да\nEnter - нет");
 			string answ = Console.ReadLine();
 			Console.WriteLine();
@@ -130,7 +130,7 @@ namespace GabrielTwentyFour
 		/// <param name="c">третье число с карточки</param>
 		/// <param name="d">четвёртое число с карточки</param>
 		/// <param name="signs">массив комбинаций знаков действий</param>
-		private void Calculation(int a, int b, int c, int d, string[] signs)
+		private void Search(int a, int b, int c, int d, string[] signs)
 		{
 			int i = 0;
 			int[] numb = { a, b, c, d };
@@ -146,7 +146,7 @@ namespace GabrielTwentyFour
 							{
 								foreach (string sign in signs)
 								{
-									if(Step(Step(Step(Convert.ToDouble(numb[i1]), Convert.ToDouble(numb[i2]), sign.Substring(0, 1)), Convert.ToDouble(numb[i3]), sign.Substring(1, 1)), Convert.ToDouble(numb[i4]), sign.Substring(2)) == 24)
+									if(Calculation(Convert.ToDouble(numb[i1]), Convert.ToDouble(numb[i2]), Convert.ToDouble(numb[i3]), Convert.ToDouble(numb[i4]), sign.Substring(0, 1), sign.Substring(1, 1), sign.Substring(2)) == 24)
 									{
 										i++;
 										i1 = 4;
@@ -181,6 +181,24 @@ namespace GabrielTwentyFour
 				}
 			}*/
 		}
+
+        /// <summary>
+        /// Порядок действий в вычислении
+        /// </summary>
+        /// <param name="numberOne">первое число в последовательности чисел</param>
+        /// <param name="numberTwo">второе число в последовательности чисел</param>
+        /// <param name="numberThree">третье число в последовательности чисел</param>
+        /// <param name="numberFour">четвёртое число в последовательности чисел</param>
+        /// <param name="signOne">первый знак в последовательности знаков</param>
+        /// <param name="signTwo">второй знак в последовательности знаков</param>
+        /// <param name="signThree">третий знак в последовательности знаков</param>
+        /// <returns></returns>
+        private double Calculation(double numberOne, double numberTwo, double numberThree, double numberFour, string signOne, string signTwo, string signThree)
+		{
+			double x1 = Step(numberOne, numberTwo, signOne);
+			double x2 = Step(x1, numberThree, signTwo);
+			return Step(x2, numberFour, signThree);
+        }
 
 		/// <summary>
 		/// Одно действие подсчёта

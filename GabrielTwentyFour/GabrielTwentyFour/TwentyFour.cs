@@ -151,7 +151,7 @@ namespace GabrielTwentyFour
 										i++;
 										Console.WriteLine("\nКарточка составлена корректно.\nВозможные действия:");
 										Console.WriteLine("1. " + numb[i1] + sign.Substring(0, 1) + numb[i2] + "=" + x1);
-										Console.WriteLine("2. " + x1 + sign.Substring(0, 1) + numb[i3] + "=" + x2);
+										Console.WriteLine("2. " + x1 + sign.Substring(1, 1) + numb[i3] + "=" + x2);
 										Console.WriteLine("3. " + x2 + sign.Substring(2) + numb[i4] + "=" + x3);
 										i1 = 4;
 										i2 = 4;
@@ -170,24 +170,6 @@ namespace GabrielTwentyFour
 				Console.WriteLine("\nКарточка составлена некорректно.\n");
 			}
 		}
-
-        /// <summary>
-        /// Порядок действий в вычислении
-        /// </summary>
-        /// <param name="numberOne">первое число в последовательности чисел</param>
-        /// <param name="numberTwo">второе число в последовательности чисел</param>
-        /// <param name="numberThree">третье число в последовательности чисел</param>
-        /// <param name="numberFour">четвёртое число в последовательности чисел</param>
-        /// <param name="signOne">первый знак в последовательности знаков</param>
-        /// <param name="signTwo">второй знак в последовательности знаков</param>
-        /// <param name="signThree">третий знак в последовательности знаков</param>
-        /// <returns></returns>
-        private double Calculation(double numberOne, double numberTwo, double numberThree, double numberFour, string signOne, string signTwo, string signThree)
-		{
-			double x1 = Step(numberOne, numberTwo, signOne);
-			double x2 = Step(x1, numberThree, signTwo);
-			return Step(x2, numberFour, signThree);
-        }
 
 		/// <summary>
 		/// Одно действие подсчёта

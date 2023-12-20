@@ -1,0 +1,8 @@
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\bin\Debug\GabrielTwentyFour.exe.config
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\bin\Debug\GabrielTwentyFour.exe
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\bin\Debug\GabrielTwentyFour.pdb
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\obj\Debug\GabrielTwentyFour.csproj.AssemblyReference.cache
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\obj\Debug\GabrielTwentyFour.csproj.SuggestedBindingRedirects.cache
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\obj\Debug\GabrielTwentyFour.csproj.CoreCompileInputs.cache
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\obj\Debug\GabrielTwentyFour.exe
+E:\Финская\CS\GabrielTwentyFour\GabrielTwentyFour\obj\Debug\GabrielTwentyFour.pdb
